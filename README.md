@@ -33,4 +33,4 @@ Guidance:
 - implement as you would in a production app you work on together with a team
 - while building the solution consider that the app is not finished and will be extended, features might be reused
 - in case of design doubts make a decision yourself
-- there are no hard time limits but one person day should be enough
+- there are no hard time limits 
