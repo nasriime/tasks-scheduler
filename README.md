@@ -4,7 +4,7 @@ Bitpanda interview task.
 
 ## How to do this task
 
-1. Make a private/public fork this repository (or mirror it to your favourite git service -- Gitlab, Bitbucket, etc.)
+1. Make a private fork this repository (or mirror it to your favourite git service -- Gitlab, Bitbucket, etc.)
 1. Complete the task described below using development practices you're familiar with (git flow)
 1. Use your own fork for all development, don't submit pull requests to origin repository
 1. In case of any questions, contact the HR you interacted with
