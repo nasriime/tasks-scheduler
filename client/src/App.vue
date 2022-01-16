@@ -6,30 +6,27 @@
 <script lang="ts">
 import { ref, defineComponent } from '@vue/composition-api';
 
+/* eslint-disable import/extensions, import/no-unresolved */
+import { Ref, Data } from './types/index';
+
 export default defineComponent({
   name: 'App',
   setup() {
-    // utilise todo-bitpanda-server to get data
-    const result = ref();
+    const data: Ref = ref();
+    const url = 'http://localhost:3000/api/v1/todo';
 
-    const fetchData = (): Promise<any> => {
-      const url = '3000/api/v1/todo/';
-
-      return fetch(url)
-        .then((response) => {
-          if (response.status !== 201) {
-            throw response.status;
-          } else {
-            return response.json();
-          }
-        });
-    };
-
-    result.value = fetchData();
+    fetch(url)
+      .then((res) => res.json())
+      .then((result: Data) => {
+        console.log('result', result);
+        data.value = result;
+      }, (err) => {
+        console.log('err', err);
+      });
 
     return {
       message: 'Todo list should be here',
-      result,
+      data,
     };
   },
 });
