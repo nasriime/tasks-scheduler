@@ -1,12 +1,12 @@
-export type Item = {
+export interface Item {
     _id: string,
     description: string,
-    done: string,
+    done: boolean,
     createdAt: string,
     updatedAt: string,
 }
 
-export type meta = {
+export interface meta {
     itemCount: number,
     offset: number,
     limit: number,
@@ -18,11 +18,7 @@ export type meta = {
     nextPage: string
 }
 
-export type Data = {
+export interface DataRef {
     items: [Item],
     meta: meta
 }
-
-export interface Ref {
-    value: Data
-  }

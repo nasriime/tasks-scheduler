@@ -8,9 +8,8 @@ import { defineComponent } from '@vue/composition-api';
 export default defineComponent({
   name: 'ListItem',
   props: {
-    item: String,
+    item: Object,
     index: Number,
-    key: Number,
   },
   setup() {
     return {
