@@ -19,6 +19,7 @@
       :index="index"
       :key="item._id"
     )
+    div(v-if="data.length === 0") No results found
 </template>
 
 <script lang="ts">
