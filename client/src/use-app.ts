@@ -87,11 +87,17 @@ const useApp = () => {
       });
   };
 
-  const onclick = (evt: Event): void => {
-    console.log((evt.target as HTMLInputElement).value);
+  const search = (evt: Event): void => {
     const val = (evt.target as HTMLInputElement).value;
 
-    item.value = val;
+    if (val === '') {
+      getTodos();
+      return;
+    }
+
+    const newData = data.value.filter((v: Item) => v.description.includes(val.toLowerCase()));
+
+    data.value = newData;
   };
 
   return {
@@ -100,7 +106,7 @@ const useApp = () => {
     addItem,
     deleteItem,
     updateItem,
-    onclick,
+    search,
     item,
   };
 };

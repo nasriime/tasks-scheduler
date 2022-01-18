@@ -4,6 +4,12 @@
       type='text'
       name='search'
       placeholder='Search'
+      @input="search"
+    )
+    input(
+      type='text'
+      name='take_note'
+      placeholder='Take a note'
       v-model="item"
     )
     button(type='button' @click="addItem") btn
@@ -29,7 +35,8 @@ export default defineComponent({
   },
   setup() {
     const {
-      getTodos, data, addItem, onclick, item,
+      getTodos, data, addItem, deleteItem,
+      updateItem, search, item,
     } = useApp();
 
     getTodos();
@@ -37,7 +44,9 @@ export default defineComponent({
     return {
       data,
       addItem,
-      onclick,
+      deleteItem,
+      updateItem,
+      search,
       item,
     };
   },
