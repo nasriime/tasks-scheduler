@@ -12,12 +12,13 @@
       placeholder='Take a note'
       v-model="item"
     )
-    button(type='button' @click="addItem") btn
+    button(type='button' @click="addItem") +
     ListItem(
       v-for="(item, index) in data"
       :item="item"
       :index="index"
       :key="item._id"
+      @deleted-item="deleteItem"
     )
     div(v-if="data.length === 0") No results found
 </template>

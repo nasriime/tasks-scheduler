@@ -1,9 +1,9 @@
 import { ref } from '@vue/composition-api';
 
 /* eslint-disable import/extensions, import/no-unresolved */
-import { DataRef } from '../types/index';
+import { DataRef, API } from '../types/index';
 
-export default () => {
+export default (): API => {
   const results = ref<DataRef>();
   const loading = ref(false);
   const errors = ref();

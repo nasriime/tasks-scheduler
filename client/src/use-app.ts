@@ -1,9 +1,9 @@
 import { ref } from '@vue/composition-api';
 
 /* eslint-disable import/extensions, import/no-unresolved */
-import { Item, DataRef } from './types/index';
+import { Item, DataRef, USEAPP } from './types/index';
 
-const useApp = () => {
+const useApp = (): USEAPP => {
   const items = [{
     _id: '61e279bd09171b00124d8e23',
     description: 'Dolore mollit duis ut qui quis magna dolor labore adipisicing commodo.',
@@ -50,13 +50,13 @@ const useApp = () => {
       });
   };
 
-  const deleteItem = (id: string): void => {
-    fetch(`${url}/${id}`, {
+  const deleteItem = (singleItem: Item): void => {
+    const { _id } = singleItem;
+
+    fetch(`${url}/${_id}`, {
       method: 'DELETE',
     })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log('result', result);
+      .then(() => {
         getTodos();
       })
       .catch((error) => {
