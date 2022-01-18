@@ -6,7 +6,7 @@
       placeholder='Search'
       v-model="item"
     )
-    button(type='button' @click="addItem($event)") btn
+    button(type='button' @click="addItem") btn
     ListItem(
       v-for="(item, index) in data"
       :item="item"

@@ -26,7 +26,7 @@ const useApp = () => {
       });
   };
 
-  const addItem = () => {
+  const addItem = ():void => {
     const body = {
       description: item.value,
       done: false,
@@ -43,6 +43,44 @@ const useApp = () => {
       .then((result) => {
         console.log('result', result);
         item.value = '';
+        getTodos();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
+
+  const deleteItem = (id: string): void => {
+    fetch(`${url}/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log('result', result);
+        getTodos();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
+
+  const updateItem = (id: string): void => {
+    const body = {
+      description: item.value,
+      done: false,
+    };
+
+    fetch(`${url}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log('result', result);
+        getTodos();
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -60,6 +98,8 @@ const useApp = () => {
     getTodos,
     data,
     addItem,
+    deleteItem,
+    updateItem,
     onclick,
     item,
   };
