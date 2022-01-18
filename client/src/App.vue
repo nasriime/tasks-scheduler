@@ -16,9 +16,9 @@
     ListItem(
       v-for="(item, index) in data"
       :item="item"
-      :index="index"
       :key="item._id"
       @deleted-item="deleteItem"
+      @edited-item="updateItem"
     )
     div(v-if="data.length === 0") No results found
 </template>

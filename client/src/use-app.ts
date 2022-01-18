@@ -64,13 +64,20 @@ const useApp = (): USEAPP => {
       });
   };
 
-  const updateItem = (id: string): void => {
+  const updateItem = (singleItem: Item): void => {
+    const {
+      _id, description, done, createdAt, updatedAt,
+    } = singleItem;
+
     const body = {
-      description: item.value,
-      done: false,
+      _id,
+      description,
+      done: !done,
+      createdAt,
+      updatedAt,
     };
 
-    fetch(`${url}/${id}`, {
+    fetch(`${url}/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

@@ -36,7 +36,7 @@ export interface USEAPP {
     }[]>;
     addItem: () => void;
     deleteItem: (singleItem: Item) => void;
-    updateItem: (id: string) => void;
+    updateItem: (singleItem: Item) => void;
     search: (evt: Event) => void;
     item: Ref<string>;
 }

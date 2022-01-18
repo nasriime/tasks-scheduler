@@ -1,5 +1,11 @@
 <template lang="pug">
-  li {{ index }} {{item.description}}
+  li
+    input(
+      type="checkbox"
+      v-model="item.done"
+      @click="triggerEditeddItem(item)"
+    )
+    span {{item.description}}
     button(@click="triggerDeletedItem(item)") x
 </template>
 
@@ -13,17 +19,21 @@ export default defineComponent({
   name: 'ListItem',
   props: {
     item: Object,
-    index: Number,
   },
   emits: ['deletedItem'],
   setup(props, { emit }) {
     const triggerDeletedItem = (item: Item) => {
-      console.log('there', item);
       emit('deleted-item', item);
+    };
+
+    const triggerEditeddItem = (item: Item) => {
+      console.log('there', item);
+      emit('edited-item', item);
     };
 
     return {
       triggerDeletedItem,
+      triggerEditeddItem,
     };
   },
 });
