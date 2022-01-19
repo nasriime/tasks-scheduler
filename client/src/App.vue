@@ -1,11 +1,17 @@
 <template lang="pug">
   #app.todo-app
-    input(
-      type='text'
-      name='search'
-      placeholder='Search'
-      @input="search"
-    )
+    div.search
+      img(
+        src="./assets/images/search-icon.png"
+        class="search--img"
+      )
+      input(
+        type='text'
+        name='search'
+        class="search--input"
+        placeholder='Search'
+        @input="search"
+      )
     input(
       type='text'
       name='take_note'
@@ -79,5 +85,24 @@ body{
 .todo-app {
   max-width: 500px;
   margin: 40px auto 0px;
+}
+.search{
+  margin-bottom: 20px;
+  position: relative;
+  &--img{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  &--input{
+    border-radius: 12px;
+    border-color: transparent;
+    width: 100%;
+    background: $input-bg;
+    padding: 6px 29px;
+    font-weight: 300;
+    font-size: 16px;
+    color: #787878;
+  }
 }
 </style>
