@@ -33,18 +33,19 @@
         @deleted-item="deleteItem"
         @edited-item="updateItem"
       )
-      div(v-if="data.length === 0") No results found
+      div(v-if="data.length === 0" class="no-results") No results found
     div.arrows
-      img(
-        src="./assets/images/left-arrow.png"
-        class="arrows__left"
-        @click="navigate('previous')"
-      )
-      img(
-        src="./assets/images/right-arrow.png"
-        class="arrows__right"
-        @click="navigate('next')"
-      )
+      div.arrows__wrapper
+        img(
+          src="./assets/images/left-arrow.png"
+          class="arrows__left"
+          @click="navigate('previous')"
+        )
+        img(
+          src="./assets/images/right-arrow.png"
+          class="arrows__right"
+          @click="navigate('next')"
+        )
 </template>
 
 <script lang="ts">
@@ -90,13 +91,16 @@ export default defineComponent({
 *{
   box-sizing: border-box;
 }
+
 body{
   background: $bg;
 }
+
 .todo-app {
   max-width: 588px;
   margin: 40px auto 0px;
 }
+
 .search{
   margin-bottom: 20px;
   position: relative;
@@ -114,6 +118,7 @@ body{
     font-weight: 300;
     font-size: 16px;
     color: #787878;
+    outline: none;
   }
 }
 .list{
@@ -123,6 +128,7 @@ body{
   overflow: hidden;
   margin-bottom: 30px;
 }
+
 .note{
     position: relative;
     border-bottom: 1px solid #C6C6C6;
@@ -142,10 +148,28 @@ body{
   }
 }
 
+.no-results{
+  text-align: center;
+  padding: 20px;
+}
+
 .arrows{
-  text-align: right;
-  .arrows__right, .arrows__left {
-    cursor: pointer;
+  display: flex;
+  justify-content: end;
+  .arrows__wrapper{
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    .arrows__right{
+      cursor: pointer;
+      padding-left: 10px;
+      border-left: 1px solid rgba(0, 0, 0, 0.17);;
+    }
+    .arrows__left {
+      cursor: pointer;
+      padding-right: 10px;
+    }
   }
 }
 </style>

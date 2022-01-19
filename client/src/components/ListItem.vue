@@ -1,12 +1,17 @@
 <template lang="pug">
   div.item
-    input(
-      type="checkbox"
-      v-model="item.done"
-      @click="triggerEditeddItem(item)"
+    div
+      input(
+        type="checkbox"
+        v-model="item.done"
+        @click="triggerEditeddItem(item)"
+      )
+      span {{item.description}}
+    img(
+      src="../assets/images/remove.png"
+      class="item__close"
+      @click="triggerDeletedItem(item)"
     )
-    span {{item.description}}
-    button(@click="triggerDeletedItem(item)") x
 </template>
 
 <script lang="ts">
@@ -40,10 +45,16 @@ export default defineComponent({
 
 <style lang="scss">
   .item{
+    display: flex;
+    justify-content: space-between;
     background: #fff;
     padding: 10px;
     &:not(:last-child){
       border-bottom: 1px solid #C6C6C6;
+    }
+    .item__close{
+      align-self: center;
+      cursor: pointer;
     }
   }
 </style>

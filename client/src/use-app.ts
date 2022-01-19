@@ -50,8 +50,7 @@ const useApp = (): USEAPP => {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((result) => {
-        console.log('result', result);
+      .then(() => {
         item.value = '';
         getTodos();
       })
