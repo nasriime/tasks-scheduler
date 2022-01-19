@@ -15,7 +15,7 @@ const useApp = (): USEAPP => {
   const item = ref('');
   const data = ref<Item[]>(defaultItems);
   const limit = ref<number>(20);
-  const offset = ref<number>(20);
+  const offset = ref<number>(0);
   const hasNextPage = ref<boolean>(false);
   const hasPrevPage = ref<boolean>(false);
 
@@ -30,6 +30,7 @@ const useApp = (): USEAPP => {
         data.value = items;
         hasNextPage.value = meta.hasNextPage;
         hasPrevPage.value = meta.hasPrevPage;
+        offset.value = meta.offset;
       }, (err) => {
         console.log('err', err);
       });
@@ -125,10 +126,14 @@ const useApp = (): USEAPP => {
       offset.value -= limit.value;
     }
 
-    fetch(`${url}?limit=${limit.value},offset=${offset.value}`)
+    fetch(`${url}?limit=${limit.value}&offset=${offset.value}`)
       .then((res) => res.json())
       .then((result: DataRef): void => {
-        data.value = result.items;
+        const { items, meta } = result;
+
+        data.value = items;
+        hasNextPage.value = meta.hasNextPage;
+        hasPrevPage.value = meta.hasPrevPage;
       }, (err) => {
         console.log('err', err);
       });

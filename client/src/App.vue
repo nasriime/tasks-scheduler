@@ -23,14 +23,14 @@
     div(v-if="data.length === 0") No results found
     button(
       type='button'
-      name="next_button"
-      disabled="hasNextPage"
-      @click="navigate('next')") <
+      name="previous_button"
+      :disabled="!hasPrevPage"
+      @click="navigate('previous')") <
     button(
       type='button'
-      name="previous_button"
-      disabled="hasPrevPage"
-      @click="navigate('previous')") >
+      name="next_button"
+      :disabled="!hasNextPage"
+      @click="navigate('next')") >
 </template>
 
 <script lang="ts">
