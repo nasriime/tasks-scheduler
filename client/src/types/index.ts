@@ -14,8 +14,8 @@ export interface meta {
     limit: number,
     pageCount: number,
     page: number,
-    hasPrevPage: string,
-    hasNextPage: string,
+    hasPrevPage: boolean,
+    hasNextPage: boolean,
     prevPage: string,
     nextPage: string
 }
@@ -38,7 +38,10 @@ export interface USEAPP {
     deleteItem: (singleItem: Item) => void;
     updateItem: (singleItem: Item) => void;
     search: (evt: Event) => void;
+    navigate: (dir: string) => void,
     item: Ref<string>;
+    hasNextPage: Ref<boolean>;
+    hasPrevPage: Ref<boolean>;
 }
 
 export interface API {

@@ -4,7 +4,7 @@ import { ref } from '@vue/composition-api';
 import { Item, DataRef, USEAPP } from './types/index';
 
 const useApp = (): USEAPP => {
-  const items = [{
+  const defaultItems = [{
     _id: '61e279bd09171b00124d8e23',
     description: 'Dolore mollit duis ut qui quis magna dolor labore adipisicing commodo.',
     done: true,
@@ -13,14 +13,23 @@ const useApp = (): USEAPP => {
   }];
 
   const item = ref('');
-  const data = ref<Item[]>(items);
+  const data = ref<Item[]>(defaultItems);
+  const limit = ref<number>(20);
+  const offset = ref<number>(20);
+  const hasNextPage = ref<boolean>(false);
+  const hasPrevPage = ref<boolean>(false);
+
   const url = 'http://localhost:3000/api/v1/todo';
 
   const getTodos = () => {
     fetch(url)
       .then((res) => res.json())
       .then((result: DataRef): void => {
-        data.value = result.items;
+        const { items, meta } = result;
+
+        data.value = items;
+        hasNextPage.value = meta.hasNextPage;
+        hasPrevPage.value = meta.hasPrevPage;
       }, (err) => {
         console.log('err', err);
       });
@@ -107,6 +116,24 @@ const useApp = (): USEAPP => {
     data.value = newData;
   };
 
+  const navigate = (dir: string): void => {
+    console.log('here');
+
+    if (dir === 'next') {
+      offset.value += limit.value;
+    } else {
+      offset.value -= limit.value;
+    }
+
+    fetch(`${url}?limit=${limit.value},offset=${offset.value}`)
+      .then((res) => res.json())
+      .then((result: DataRef): void => {
+        data.value = result.items;
+      }, (err) => {
+        console.log('err', err);
+      });
+  };
+
   return {
     getTodos,
     data,
@@ -114,7 +141,10 @@ const useApp = (): USEAPP => {
     deleteItem,
     updateItem,
     search,
+    navigate,
     item,
+    hasNextPage,
+    hasPrevPage,
   };
 };
 

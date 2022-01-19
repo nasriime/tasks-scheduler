@@ -21,6 +21,16 @@
       @edited-item="updateItem"
     )
     div(v-if="data.length === 0") No results found
+    button(
+      type='button'
+      name="next_button"
+      disabled="hasNextPage"
+      @click="navigate('next')") <
+    button(
+      type='button'
+      name="previous_button"
+      disabled="hasPrevPage"
+      @click="navigate('previous')") >
 </template>
 
 <script lang="ts">
@@ -38,7 +48,9 @@ export default defineComponent({
   setup() {
     const {
       getTodos, data, addItem, deleteItem,
-      updateItem, search, item,
+      updateItem, search, navigate, item,
+      hasNextPage,
+      hasPrevPage,
     } = useApp();
 
     getTodos();
@@ -49,7 +61,10 @@ export default defineComponent({
       deleteItem,
       updateItem,
       search,
+      navigate,
       item,
+      hasNextPage,
+      hasPrevPage,
     };
   },
 });
