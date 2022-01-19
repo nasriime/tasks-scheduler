@@ -71,7 +71,13 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import "./assets/scss/_variables.scss";
+
+body{
+  background: $bg;
+}
 .todo-app {
-  text-align: center;
+  max-width: 500px;
+  margin: 40px auto 0px;
 }
 </style>

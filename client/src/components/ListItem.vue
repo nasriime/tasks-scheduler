@@ -1,5 +1,5 @@
 <template lang="pug">
-  li
+  div
     input(
       type="checkbox"
       v-model="item.done"
@@ -27,7 +27,6 @@ export default defineComponent({
     };
 
     const triggerEditeddItem = (item: Item) => {
-      console.log('there', item);
       emit('edited-item', item);
     };
 

@@ -118,8 +118,6 @@ const useApp = (): USEAPP => {
   };
 
   const navigate = (dir: string): void => {
-    console.log('here');
-
     if (dir === 'next') {
       offset.value += limit.value;
     } else {
