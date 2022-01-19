@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.item
     input(
       type="checkbox"
       v-model="item.done"
@@ -39,5 +39,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-
+  .item{
+    background: #fff;
+    padding: 10px;
+    &:not(:last-child){
+      border-bottom: 1px solid #C6C6C6;
+    }
+  }
 </style>

@@ -15,7 +15,7 @@
     div.list
       div.note
         img(
-          src="./assets/images/Add.png"
+          src="./assets/images/add.png"
           class="note__img"
           @click="addItem"
         )
@@ -34,19 +34,17 @@
         @edited-item="updateItem"
       )
       div(v-if="data.length === 0") No results found
-      div.buttons--wrapper
-        button(
-          type='button'
-          name="previous_button"
-          :disabled="!hasPrevPage"
-          @click="navigate('previous')"
-          ) <
-        button(
-          type='button'
-          name="next_button"
-          :disabled="!hasNextPage"
-          @click="navigate('next')"
-          ) >
+    div.arrows
+      img(
+        src="./assets/images/left-arrow.png"
+        class="arrows__left"
+        @click="navigate('previous')"
+      )
+      img(
+        src="./assets/images/right-arrow.png"
+        class="arrows__right"
+        @click="navigate('next')"
+      )
 </template>
 
 <script lang="ts">
@@ -96,7 +94,7 @@ body{
   background: $bg;
 }
 .todo-app {
-  max-width: 500px;
+  max-width: 588px;
   margin: 40px auto 0px;
 }
 .search{
@@ -120,6 +118,10 @@ body{
 }
 .list{
   width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 .note{
     position: relative;
@@ -140,7 +142,10 @@ body{
   }
 }
 
-.buttons__wrapper{
+.arrows{
   text-align: right;
+  .arrows__right, .arrows__left {
+    cursor: pointer;
+  }
 }
 </style>
