@@ -15,6 +15,7 @@
         class="item__title"
         @click="triggerEditeddItem(item)"
         ) {{item.description}}
+          span.item__time  - {{time}}
     img(
       src="../assets/images/remove.png"
       class="item__close"
@@ -23,7 +24,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, computed } from '@vue/composition-api';
+import moment from 'moment';
 
 /* eslint-disable import/extensions, import/no-unresolved */
 import { Item } from '../types/index';
@@ -35,6 +37,7 @@ export default defineComponent({
   },
   emits: ['deletedItem'],
   setup(props, { emit }) {
+    const time: string = computed(():string => moment(props.item.updatedAt).fromNow(true));
     const triggerDeletedItem = (item: Item) => {
       emit('deleted-item', item);
     };
@@ -46,6 +49,7 @@ export default defineComponent({
     return {
       triggerDeletedItem,
       triggerEditeddItem,
+      time,
     };
   },
 });
@@ -94,6 +98,12 @@ export default defineComponent({
           text-decoration: line-through;
           color: #AEAEAE;
         }
+    }
+
+    &__time{
+      font-size: 10px;
+      font-weight: 100;
+      color: #AEAEAE;
     }
 
     &__close{
