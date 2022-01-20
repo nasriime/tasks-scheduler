@@ -4,16 +4,8 @@ import { ref } from '@vue/composition-api';
 import { Item, DataRef, USEAPP } from './types/index';
 
 const useApp = (): USEAPP => {
-  const defaultItems = [{
-    _id: '61e279bd09171b00124d8e23',
-    description: 'Dolore mollit duis ut qui quis magna dolor labore adipisicing commodo.',
-    done: true,
-    createdAt: '2022-01-15T07:37:33.923Z',
-    updatedAt: '2022-01-15T07:37:33.923Z',
-  }];
-
   const item = ref('');
-  const data = ref<Item[]>(defaultItems);
+  const data = ref<Item[]>([]);
   const limit = ref<number>(20);
   const offset = ref<number>(0);
   const hasNextPage = ref<boolean>(false);
