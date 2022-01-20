@@ -36,16 +36,22 @@
       div(v-if="data.length === 0" class="no-results") No results found
     div.arrows
       div.arrows__wrapper
-        img(
-          src="./assets/images/left-arrow.png"
+        span(
           class="arrows__left"
-          @click="navigate('previous')"
+          v-bind:class="{ 'is-disabled': !hasPrevPage }"
         )
-        img(
-          src="./assets/images/right-arrow.png"
+          img(
+            src="./assets/images/left-arrow.png"
+            @click="navigate('previous')"
+          )
+        span(
           class="arrows__right"
-          @click="navigate('next')"
+          v-bind:class="{ 'is-disabled': !hasNextPage }"
         )
+          img(
+            src="./assets/images/right-arrow.png"
+            @click="navigate('next')"
+          )
 </template>
 
 <script lang="ts">
@@ -131,7 +137,7 @@ body{
   border: 1px solid rgba(0, 0, 0, 0.17);
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 
 .note{
@@ -140,7 +146,7 @@ body{
   &__img{
     position: absolute;
     top: 17px;
-    right: 10px;
+    right: 13px;
     cursor: pointer;
   }
   &__input{
@@ -167,13 +173,31 @@ body{
     padding: 10px;
     border-radius: 12px;
     .arrows__right{
-      cursor: pointer;
-      padding-left: 10px;
-      border-left: 1px solid rgba(0, 0, 0, 0.17);;
+      img{
+        cursor: pointer;
+        padding-left: 10px;
+        border-left: 1px solid rgba(0, 0, 0, 0.17);
+      }
+      &.is-disabled{
+        cursor: no-drop;
+        opacity: 0.6;
+        img{
+          pointer-events: none;
+        }
+      }
     }
     .arrows__left {
-      cursor: pointer;
-      padding-right: 10px;
+      img{
+        cursor: pointer;
+        padding-right: 10px;
+      }
+      &.is-disabled{
+        cursor: no-drop;
+        opacity: 0.6;
+        img{
+          pointer-events: none;
+        }
+      }
     }
   }
 }

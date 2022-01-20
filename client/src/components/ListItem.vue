@@ -87,6 +87,7 @@ export default defineComponent({
     &__title{
       margin-top: 6px;
       font-size: 16px;
+      font-weight: 100;
       color: #000;
       cursor: pointer;
       &.is-active{
