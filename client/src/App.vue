@@ -150,13 +150,13 @@ body{
     border-bottom: 1px solid #C6C6C6;
   &__img{
     position: absolute;
-    top: 17px;
+    top: 20px;
     right: 20px;
     cursor: pointer;
   }
   &__input{
     width: 100%;
-    padding: 16px 10px 16px 30px;
+    padding: 19px 10px 19px 30px;
     border: none;
     outline: none;
     color: #A8A8A8;
@@ -176,12 +176,12 @@ body{
   .arrows__wrapper{
     border: 1px solid rgba(0, 0, 0, 0.17);
     background: #fff;
-    padding: 10px 10px 6px;
+    padding: 9px 10px 5px;
     border-radius: 12px;
     .arrows__right{
       img{
         cursor: pointer;
-        padding-left: 10px;
+        padding-left: 13px;
         border-left: 1px solid rgba(0, 0, 0, 0.17);
       }
       &.is-disabled{
@@ -195,7 +195,7 @@ body{
     .arrows__left {
       img{
         cursor: pointer;
-        padding-right: 10px;
+        padding-right: 13px;
       }
       &.is-disabled{
         cursor: no-drop;

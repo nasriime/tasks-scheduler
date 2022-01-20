@@ -111,7 +111,7 @@ export default defineComponent({
 
     &__close{
       align-self: start;
-      margin: 9px 0px 0px 7px;
+      margin: 10px 0px 0px 7px;
       cursor: pointer;
     }
   }
