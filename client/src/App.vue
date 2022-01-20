@@ -87,6 +87,11 @@ export default defineComponent({
 
 <style lang="scss">
 @import "./assets/scss/_variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
 
 *{
   box-sizing: border-box;
@@ -106,7 +111,7 @@ body{
   position: relative;
   &__img{
     position: absolute;
-    top: 10px;
+    top: 9px;
     left: 10px;
   }
   &__input{
@@ -134,13 +139,13 @@ body{
     border-bottom: 1px solid #C6C6C6;
   &__img{
     position: absolute;
-    top: 10px;
+    top: 17px;
     right: 10px;
     cursor: pointer;
   }
   &__input{
     width: 100%;
-    padding: 10px;
+    padding: 16px 10px 16px 30px;
     border: none;
     outline: none;
     color: #A8A8A8;
