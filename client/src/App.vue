@@ -113,7 +113,7 @@ body{
 }
 
 .search{
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   position: relative;
   &__img{
     position: absolute;
@@ -125,11 +125,16 @@ body{
     border-color: transparent;
     width: 100%;
     background: $input-bg;
-    padding: 6px 29px;
+    padding: 5px 29px;
     font-weight: 300;
     font-size: 16px;
     color: #787878;
     outline: none;
+
+    &::placeholder {
+      color: #787878;
+      font-weight: 300;
+    }
   }
 }
 .list{
@@ -146,7 +151,7 @@ body{
   &__img{
     position: absolute;
     top: 17px;
-    right: 13px;
+    right: 20px;
     cursor: pointer;
   }
   &__input{
@@ -162,6 +167,7 @@ body{
 .no-results{
   text-align: center;
   padding: 20px;
+  background: #fff;
 }
 
 .arrows{
@@ -170,7 +176,7 @@ body{
   .arrows__wrapper{
     border: 1px solid rgba(0, 0, 0, 0.17);
     background: #fff;
-    padding: 10px;
+    padding: 10px 10px 6px;
     border-radius: 12px;
     .arrows__right{
       img{

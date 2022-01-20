@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api';
+import { defineComponent, PropType, computed } from '@vue/composition-api';
 import moment from 'moment';
 
 /* eslint-disable import/extensions, import/no-unresolved */
@@ -33,11 +33,14 @@ import { Item } from '../types/index';
 export default defineComponent({
   name: 'ListItem',
   props: {
-    item: Object,
+    item: {
+      required: true,
+      type: Object as PropType<Item>,
+    },
   },
   emits: ['deletedItem'],
   setup(props, { emit }) {
-    const time: string = computed(():string => moment(props.item.updatedAt).fromNow(true));
+    const time = computed(():string => moment(props.item.updatedAt).fromNow(true));
     const triggerDeletedItem = (item: Item) => {
       emit('deleted-item', item);
     };
@@ -60,7 +63,7 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     background: #fff;
-    padding: 10px 15px 10px 10px;
+    padding: 10px 18px;
     &:not(:last-child){
       border-bottom: 1px solid #C6C6C6;
     }

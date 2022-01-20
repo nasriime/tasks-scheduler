@@ -1,7 +1,5 @@
 # SimpleTodo
 
-Bitpanda interview task.
-
 ## How to do this task
 
 1. Make a private fork this repository (or mirror it to your favourite git service -- Gitlab, Bitbucket, etc.)
@@ -13,10 +11,6 @@ Bitpanda interview task.
 ## Task
 
 Implement Todo MVC application using provided design and backend.
-
-Design: [figma link](https://www.figma.com/file/0zmN3IdInAR8aUGdrQ1w61/html%2Bcss-challenge?node-id=0%3A1)
-
-Backend: [todo-bitpanda-server](./server/README.md)
 
 Requirements:
 
