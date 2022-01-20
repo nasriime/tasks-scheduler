@@ -13,8 +13,16 @@ const useApp = (): USEAPP => {
 
   const url = 'http://localhost:3000/api/v1/todo';
 
-  const getTodos = () => {
-    fetch(url)
+  const getTodos = (dir?: string): void => {
+    if (dir === 'next') {
+      offset.value += limit.value;
+    }
+
+    if (dir === 'previous') {
+      offset.value -= limit.value;
+    }
+
+    fetch(`${url}?limit=${limit.value}&offset=${offset.value}`)
       .then((res) => res.json())
       .then((result: DataRef): void => {
         const { items, meta } = result;
@@ -22,7 +30,6 @@ const useApp = (): USEAPP => {
         data.value = items;
         hasNextPage.value = meta.hasNextPage;
         hasPrevPage.value = meta.hasPrevPage;
-        offset.value = meta.offset;
       }, (err) => {
         console.log('err', err);
       });
@@ -108,26 +115,6 @@ const useApp = (): USEAPP => {
     data.value = newData;
   };
 
-  const navigate = (dir: string): void => {
-    if (dir === 'next') {
-      offset.value += limit.value;
-    } else {
-      offset.value -= limit.value;
-    }
-
-    fetch(`${url}?limit=${limit.value}&offset=${offset.value}`)
-      .then((res) => res.json())
-      .then((result: DataRef): void => {
-        const { items, meta } = result;
-
-        data.value = items;
-        hasNextPage.value = meta.hasNextPage;
-        hasPrevPage.value = meta.hasPrevPage;
-      }, (err) => {
-        console.log('err', err);
-      });
-  };
-
   return {
     getTodos,
     data,
@@ -135,7 +122,6 @@ const useApp = (): USEAPP => {
     deleteItem,
     updateItem,
     search,
-    navigate,
     item,
     hasNextPage,
     hasPrevPage,

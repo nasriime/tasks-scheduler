@@ -42,7 +42,7 @@
         )
           img(
             src="./assets/images/left-arrow.png"
-            @click="navigate('previous')"
+            @click="getTodos('previous')"
           )
         span(
           class="arrows__right"
@@ -50,7 +50,7 @@
         )
           img(
             src="./assets/images/right-arrow.png"
-            @click="navigate('next')"
+            @click="getTodos('next')"
           )
 </template>
 
@@ -69,7 +69,7 @@ export default defineComponent({
   setup() {
     const {
       getTodos, data, addItem, deleteItem,
-      updateItem, search, navigate, item,
+      updateItem, search, item,
       hasNextPage,
       hasPrevPage,
     } = useApp();
@@ -82,7 +82,7 @@ export default defineComponent({
       deleteItem,
       updateItem,
       search,
-      navigate,
+      getTodos,
       item,
       hasNextPage,
       hasPrevPage,

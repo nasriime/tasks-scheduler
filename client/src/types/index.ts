@@ -26,7 +26,7 @@ export interface DataRef {
 }
 
 export interface USEAPP {
-    getTodos: () => void;
+    getTodos: (dir?: string) => void,
     data: Ref<{
         _id: string;
         description: string;
@@ -38,7 +38,6 @@ export interface USEAPP {
     deleteItem: (singleItem: Item) => void;
     updateItem: (singleItem: Item) => void;
     search: (evt: Event) => void;
-    navigate: (dir: string) => void,
     item: Ref<string>;
     hasNextPage: Ref<boolean>;
     hasPrevPage: Ref<boolean>;
