@@ -17,7 +17,7 @@
         ) {{item.description}}
           span.item__time  - {{time}}
     img(
-      src="../assets/images/remove.png"
+      src="../assets/images/Remove.png"
       class="item__close"
       @click="triggerDeletedItem(item)"
     )

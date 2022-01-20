@@ -15,7 +15,7 @@
     div.list
       div.note
         img(
-          src="./assets/images/add.png"
+          src="./assets/images/Add.png"
           class="note__img"
           @click="addItem"
         )
