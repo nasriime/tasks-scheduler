@@ -93,9 +93,9 @@ export default defineComponent({
 
 <style lang="scss">
 @import "./assets/scss/_variables.scss";
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-html, body {
+html, body, * {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -117,7 +117,7 @@ body{
   position: relative;
   &__img{
     position: absolute;
-    top: 9px;
+    top: 10px;
     left: 10px;
   }
   &__input{
@@ -161,6 +161,11 @@ body{
     outline: none;
     color: #A8A8A8;
     font-size: 16px;
+
+    &::placeholder {
+      color: #A8A8A8;
+      font-weight: bold;
+    }
   }
 }
 
