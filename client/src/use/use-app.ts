@@ -110,7 +110,8 @@ const useApp = (): USEAPP => {
       return;
     }
 
-    const newData = data.value.filter((v: Item) => v.description.includes(val.toLowerCase()));
+    const newData = data.value.filter((v: Item) => (
+      v.description.toLowerCase().includes(val.toLowerCase())));
 
     data.value = newData;
   };

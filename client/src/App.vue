@@ -109,7 +109,7 @@ body{
 
 .todo-app {
   max-width: 588px;
-  margin: 40px auto 0px;
+  margin: 60px auto 60px;
 }
 
 .search{
@@ -156,7 +156,7 @@ body{
   }
   &__input{
     width: 100%;
-    padding: 19px 10px 19px 30px;
+    padding: 19px 50px 19px 30px;
     border: none;
     outline: none;
     color: #A8A8A8;
