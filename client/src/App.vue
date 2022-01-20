@@ -59,7 +59,7 @@ import { defineComponent } from '@vue/composition-api';
 
 import ListItem from './components/ListItem.vue';
 /* eslint-disable import/extensions, import/no-unresolved */
-import useApp from './use-app';
+import useApp from './use/use-app';
 
 export default defineComponent({
   name: 'App',

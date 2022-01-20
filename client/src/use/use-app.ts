@@ -1,7 +1,7 @@
 import { ref } from '@vue/composition-api';
 
 /* eslint-disable import/extensions, import/no-unresolved */
-import { Item, DataRef, USEAPP } from './types/index';
+import { Item, DataRef, USEAPP } from '../types/index';
 
 const useApp = (): USEAPP => {
   const item = ref('');
