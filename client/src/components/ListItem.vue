@@ -64,6 +64,7 @@ export default defineComponent({
     justify-content: space-between;
     background: #fff;
     padding: 10px 18px;
+    cursor: pointer;
     &:not(:last-child){
       border-bottom: 1px solid #C6C6C6;
     }
