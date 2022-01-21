@@ -68,6 +68,12 @@ export default defineComponent({
       border-bottom: 1px solid #C6C6C6;
     }
 
+    &:hover{
+      .item__close{
+        display: block;
+      }
+    }
+
     input[type=checkbox] {
       display: none;
       + label{
@@ -89,6 +95,7 @@ export default defineComponent({
 
     &__left{
       display: flex;
+      max-width: 531px;
     }
 
     &__title{
@@ -110,6 +117,7 @@ export default defineComponent({
     }
 
     &__close{
+      display: none;
       align-self: start;
       margin: 10px 0px 0px 7px;
       cursor: pointer;
