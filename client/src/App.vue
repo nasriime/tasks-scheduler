@@ -34,7 +34,7 @@
         @edited-item="updateItem"
       )
       div(v-if="data.length === 0" class="no-results") No results found
-    div.arrows
+    div(v-if="data.length > 0" class="arrows")
       div.arrows__wrapper
         span(
           class="arrows__left"
